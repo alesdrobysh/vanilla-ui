@@ -12,15 +12,15 @@ export class UiElement {
     this.#children = Array.isArray(children) ? children : [children];
   }
 
+  setChildren(children) {
+    this.#children = Array.isArray(children) ? children : [children];
+    return this.render();
+  }
+
   setAttributes() {
     this.#attributes.forEach((attribute) => {
       this.#element.setAttribute(attribute.name, attribute.value);
     });
-  }
-
-  setChildren(children) {
-    this.#children = Array.isArray(children) ? children : [children];
-    return this.render();
   }
 
   id(id) {
@@ -38,6 +38,19 @@ export class UiElement {
       value: "",
     };
     classAttribute.value = className;
+    return this;
+  }
+
+  attribute(name, value) {
+    const attribute = this.#attributes.find((a) => a.name === name) ?? {
+      name,
+      value: "",
+    };
+    attribute.value = value;
+
+    this.#attributes = this.#attributes.filter((a) => a.name !== name);
+    this.#attributes.push(attribute);
+
     return this;
   }
 

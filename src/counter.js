@@ -17,11 +17,6 @@ customElements.define(
     }
 
     render() {
-      const dom = div([
-        button("Increment counter").listen("click", this.increment),
-        this.output,
-      ]);
-
       this.root = this.attachShadow({ mode: "closed" });
       this.root.append(
         div([

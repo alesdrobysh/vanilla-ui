@@ -1,47 +1,26 @@
 import ui from "./ui";
-import { TabState } from "./state";
-import "./counter";
-import { counter } from "./counter";
+import { Home } from "./home";
+import { About } from "./about";
 
-const { div, button, i, b } = ui;
-const tabState = new TabState(["tab1", "tab2", "tab3"]);
-
-const Tabs = () => {
-  const tabs = tabState.tabs.map((tab) =>
-    button(tab).listen("click", () => tabState.setActiveTab(tab)),
-  );
-
-  return div(tabs);
+const routes = {
+  "/": Home,
+  "/about": About,
 };
 
-const TabContent = () => {
-  const content = div();
-
-  const setContent = () => {
-    const tab = tabState.activeTab;
-
-    if (tab === "tab1") {
-      content.setChildren(counter());
-    }
-
-    if (tab === "tab2") {
-      content.setChildren(b("Tab 2 content"));
-    }
-
-    if (tab === "tab3") {
-      content.setChildren(i("Lorem ipsum dolor sit amet"));
-    }
-  };
-
-  tabState.addEventListener("change", setContent);
-
-  setContent(tabState.activeTab);
-
-  return content;
+const App = (route) => {
+  const component = routes[route];
+  return component ? component() : ui.h1("404 Not Found");
 };
 
-const App = () => {
-  return div([Tabs(), TabContent()]);
+const render = (route) => {
+  document.querySelector("#root").innerHTML = "";
+  document.querySelector("#root").appendChild(App(route).render());
 };
 
-document.querySelector("#root").appendChild(App().render());
+render(window.location.pathname);
+
+navigation.addEventListener("navigate", (event) => {
+  const { url } = event.destination;
+  const route = new URL(url).pathname;
+  render(route);
+});
