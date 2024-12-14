@@ -1,0 +1,15 @@
+{
+  "name": "routing-app",
+  "packageManager": "yarn@4.5.3",
+  "version": "1.0.0",
+  "dependencies": {
+    "ui": "1.0.0"
+  },
+  "scripts": {
+    "start": "parcel src/index.html --port 1234",
+    "build": "parcel build src/index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.13.2"
+  }
+}

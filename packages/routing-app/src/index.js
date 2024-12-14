@@ -1,4 +1,4 @@
-import ui from "./ui";
+import ui from "ui";
 import { Home } from "./home";
 import { About } from "./about";
 

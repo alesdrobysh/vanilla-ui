@@ -1,4 +1,4 @@
-import ui from "./ui";
+import ui from "ui";
 
 export const Link = (text, href) => {
   return ui

@@ -1,6 +1,6 @@
+import ui from "ui";
 import { counter } from "./counter";
 import { Link } from "./link";
-import ui from "./ui";
 
 export const Home = () => {
   return ui.div([
@@ -9,7 +9,7 @@ export const Home = () => {
     Link("About", "/about"),
     ui.br(),
     ui.hr(),
-    ui.p("web component example below"),
+    ui.p("Web component example below"),
     counter(),
   ]);
 };

@@ -1,0 +1,15 @@
+{
+  "name": "ui",
+  "packageManager": "yarn@4.5.3",
+  "version": "1.0.0",
+  "source": "index.js",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "scripts": {
+    "start": "parcel watch",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "^2.13.2"
+  }
+}

@@ -1,5 +1,5 @@
+import ui from "ui";
 import { Link } from "./link";
-import ui from "./ui";
 
 export const About = () => {
   return ui.div([

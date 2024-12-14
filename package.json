@@ -1,9 +1,15 @@
 {
-  "name": "ui",
+  "name": "vanilla-ui",
+  "private": true,
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "parcel": "^2.13.2"
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "concurrently --kill-others \"yarn workspace routing-app start\" \"yarn workspace other-app start\"",
+    "build": "yarn workspace ui build && yarn workspace other-app build && yarn workspace routing-app build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
   }
 }

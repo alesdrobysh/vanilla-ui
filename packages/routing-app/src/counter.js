@@ -1,4 +1,4 @@
-import ui, { UiElement } from "./ui";
+import ui, { UiElement } from "ui";
 
 const { div, button } = ui;
 
