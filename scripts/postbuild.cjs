@@ -1,14 +1,9 @@
 const fs = require("fs");
 const path = require("path");
+const assert = require("assert");
 
 const dist = path.join(__dirname, "..", "dist");
 const packages = fs.readdirSync(path.join(__dirname, "..", "packages"));
-
-console.log("Deleting old dist...");
-
-if (fs.existsSync(dist)) {
-  fs.rmSync(dist, { recursive: true });
-}
 
 packages.forEach((packageName) => {
   console.log(`Copying ${packageName} dist...`);
