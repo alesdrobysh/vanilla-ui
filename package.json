@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "start": "concurrently --kill-others \"yarn workspace routing-app start\" \"yarn workspace other-app start\"",
-    "build": "yarn workspace ui build && yarn workspace other-app build && yarn workspace routing-app build"
+    "build": "yarn workspace ui build && yarn workspace other-app build && yarn workspace routing-app build && node scripts/postbuild.cjs"
   },
   "devDependencies": {
     "concurrently": "^9.1.0"
